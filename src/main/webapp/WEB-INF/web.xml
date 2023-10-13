@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>newsList</servlet-name>
+        <servlet-class>com.example.university.servlets.NewsListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newsList</servlet-name>
+        <url-pattern>/news/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>com.example.university.servlets.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegServlet</servlet-name>
+        <servlet-class>com.example.university.servlets.RegServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegServlet</servlet-name>
+        <url-pattern>/reg</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>survey</servlet-name>
+        <servlet-class>com.example.university.servlets.SurveyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>survey</servlet-name>
+        <url-pattern>/survey</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchForUsersServlet</servlet-name>
+        <servlet-class>com.example.university.servlets.SearchForUsersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchForUsersServlet</servlet-name>
+        <url-pattern>/user/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OfficeServlet</servlet-name>
+        <servlet-class>com.example.university.servlets.OfficeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OfficeServlet</servlet-name>
+        <url-pattern>/office</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>NewsDetailServlet</servlet-name>
+        <servlet-class>com.example.university.servlets.NewsDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewsDetailServlet</servlet-name>
+        <url-pattern>/news/detail</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>loginfilter</filter-name>
+        <filter-class>com.example.university.filters.FilterLogin</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginfilter</filter-name>
+        <servlet-name>newsList</servlet-name>
+    </filter-mapping>
+</web-app>

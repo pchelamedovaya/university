@@ -30,16 +30,29 @@
                 <form method="POST">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <input type="text" class="form-control" id="username" name="username" required oninput="count(this, 32)">
+                    </div><div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required oninput="count(this, 20)">
+                    </div><div class="form-group">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname" required oninput="count(this, 20)">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" required oninput="count(this, 12)">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Register</button>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        function count(input, max) {
+            if (input.value.length > max) {
+                input.value = input.value.substring(0, max);
+            }
+        }
+    </script>
 </body>
 </html>

@@ -75,17 +75,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="note-issues">Have you experienced any issues with posting notes?</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="note-issues" id="note-issues-yes" value="yes">
-                        <label class="form-check-label" for="note-issues-yes">Yes</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="note-issues" id="note-issues-no" value="no">
-                        <label class="form-check-label" for="note-issues-no">No</label>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="about-students-issues">Have you had problems finding information about students on the website?</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="about-students-issues" id="about-students-issues-yes" value="yes">
@@ -107,6 +96,12 @@
                         <option value="interesting-functions">I'll recommend it if you add interesting features</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="comments">Here you can leave feedback and suggestions</label>
+                    <textarea rows="3" class="form-control" id="comments"></textarea>
+                    <span id="commentsCount">0</span>/500
+                </div>
+
                 <button type="button" class="btn btn-primary"
                         data-bs-toggle="modal" data-bs-target="#staticBackdrop">OK</button>
 
@@ -132,6 +127,22 @@
                     </div>
                 </div>
             </form>
+            <script>
+                function count(inputF, counterE, max) {
+                    const input = document.getElementById(inputF);
+                    const counter = document.getElementById(counterE);
+                    input.addEventListener('input', function () {
+                        const currentLength = input.value.length;
+                        counter.textContent = currentLength;
+
+                        if (currentLength > max) {
+                            input.value = input.value.substring(0, max);
+                            counter.textContent = max;
+                        }
+                    });
+                }
+                count('comments', 'commentsCount', 500);
+            </script>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

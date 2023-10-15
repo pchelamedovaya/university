@@ -99,13 +99,12 @@
                 <div class="form-group">
                     <label for="comments">Here you can leave feedback and suggestions</label>
                     <textarea rows="3" class="form-control" id="comments"></textarea>
-                    <span id="commentsCount">0</span>/500
+                    <span id="commentsCount">0</span>/440
                 </div>
 
                 <button type="button" class="btn btn-primary"
                         data-bs-toggle="modal" data-bs-target="#staticBackdrop">OK</button>
 
-<#--                <button type="submit" class="btn btn-primary" value="Vote">Submit</button>-->
 
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                      data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
@@ -134,14 +133,13 @@
                     input.addEventListener('input', function () {
                         const currentLength = input.value.length;
                         counter.textContent = currentLength;
-
                         if (currentLength > max) {
                             input.value = input.value.substring(0, max);
                             counter.textContent = max;
                         }
                     });
                 }
-                count('comments', 'commentsCount', 500);
+                count('comments', 'commentsCount', 440);
             </script>
         </div>
     </div>

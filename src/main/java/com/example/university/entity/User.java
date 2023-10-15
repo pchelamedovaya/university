@@ -4,27 +4,64 @@ public class User {
     private Integer id;
     private String username;
     private String password;
-//    private String name;
-//    private String role;
-//    private String about;
+    private String name;
+    private String lastname;
+    private String gender;
+    private String institute;
+    private String group;
+    private String about;
+    private String role;
 
-//, String name, String role, String about
-    public User(Integer id, String username, String password) {
+    public User(Integer id, String username, String password, String name, String lastname, String gender, String institute, String group, String about, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
-//        this.name = name;
-//        this.role = role;
-//        this.about = about;
+        this.name = name;
+        this.lastname = lastname;
+        this.gender = gender;
+        this.institute = institute;
+        this.group = group;
+        this.about = about;
+        this.role = role;
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String name, String lastame, String gender, String institute, String group, String about, String role) {
         this.id = null;
         this.username = username;
         this.password = password;
-//        this.name = name;
-//        this.role = role;
-//        this.about = about;
+        this.name = name;
+        this.lastname = lastname;
+        this.gender = gender;
+        this.institute = institute;
+        this.group = group;
+        this.about = about;
+        this.role = role;
+    }
+
+    public User(String username, String name, String lastname, String role) {
+        this.id = null;
+        this.username = username;
+        this.password = null;
+        this.name = name;
+        this.lastname = lastname;
+        this.gender = null;
+        this.institute = null;
+        this.group = null;
+        this.about = null;
+        this.role = role;
+    }
+
+    public User(String username, String name, String lastname) {
+        this.id = null;
+        this.username = username;
+        this.password = null;
+        this.name = name;
+        this.lastname = lastname;
+        this.gender = null;
+        this.institute = null;
+        this.group = null;
+        this.about = null;
+        this.role = null;
     }
 
     public Integer getId() {
@@ -35,43 +72,75 @@ public class User {
         this.id = id;
     }
 
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public String getRole() {
-//        return role;
-//    }
-//
-//    public void setRole(String role) {
-//        this.role = role;
-//    }
-//
-//    public String getAbout() {
-//        return about;
-//    }
-//
-//    public void setAbout(String about) {
-//        this.about = about;
-//    }
+    public String getUsername() {
+        return username;
+    }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public String getPassword() {
-        return password;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastName) {
+        this.lastname = lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getInstitute() {
+        return institute;
+    }
+
+    public void setInstitute(String institute) {
+        this.institute = institute;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

@@ -17,9 +17,8 @@ public class UserDAO {
     }
 
     public User getUser(String username, String password) throws SQLException {
-        PreparedStatement preparedStatement =
-                this.connectionProvider.getConnection().
-                        prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
+        PreparedStatement preparedStatement = this.connectionProvider.
+                getConnection().prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
         preparedStatement.setString(1, username);
         preparedStatement.setString(2, password);
         ResultSet result = preparedStatement.executeQuery();
@@ -28,13 +27,41 @@ public class UserDAO {
             return new User(
                     result.getInt("id"),
                     result.getString("username"),
-                    null
-//                    result.getString("name"),
-//                    result.getString("role"),
-//                    result.getString("about")
+                    null,
+                    result.getString("name"),
+                    result.getString("lastname"),
+                    null,
+                    null,
+                    null,
+                    null,
+                    result.getString("role")
             );
         } else {
             return null;
         }
+    }
+
+    public List<User> getAllUsers(int limit) throws SQLException {
+        PreparedStatement preparedStatement = this.connectionProvider.
+                getConnection().prepareStatement("SELECT * FROM users LIMIT ?");
+        preparedStatement.setInt(1, limit);
+        ResultSet result = preparedStatement.executeQuery();
+        List<User> usersList = new ArrayList<>();
+        while (result.next()) {
+            User user = new User(
+                    result.getInt("id"),
+                    result.getString("username"),
+                    null,
+                    result.getString("name"),
+                    result.getString("lastname"),
+                    null,
+                    null,
+                    null,
+                    null,
+                    result.getString("role")
+            );
+            usersList.add(user);
+        }
+        return usersList;
     }
 }

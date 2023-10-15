@@ -32,10 +32,14 @@ public class Helper {
         if (context.getAttribute("user") == null) {
             User user = new User(
                     request.getParameter("username"),
-                    request.getParameter("password")
-//                    request.getParameter("name"),
-//                    request.getParameter("role"),
-//                    request.getParameter("about")
+                    request.getParameter("password"),
+                    request.getParameter("name"),
+                    request.getParameter("lastname"),
+                    request.getParameter("gender"),
+                    request.getParameter("institute"),
+                    request.getParameter("group"),
+                    request.getParameter("about"),
+                    request.getParameter("role")
             );
             context.setAttribute("user", user);
             session.setAttribute("auth", user);

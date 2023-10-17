@@ -3,27 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>News</title>
-    <link rel="stylesheet" href="../styles/index.css">
+    <title>NewsDetail</title>
+    <link rel="stylesheet" href="/university_war_exploded/styles/newsdetail.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        body {
-            padding: 0 35px;
-        }
-        .container {
-            margin-bottom: 70px;
-            margin-top: 50px;
-        }
-        .row-second {
-            margin-top: 20px;
-        }
-        .img-fluid {
-            width: 95%;
-        }
-        .title {
-            margin-bottom: 45px;
-        }
-    </style>
 </head>
 <body>
 <@macros.navbar/>

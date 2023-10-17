@@ -1,0 +1,17 @@
+@import "base.css";
+.survey-container {
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: start;
+    align-items: center;
+}
+.title {
+    margin-bottom: 35px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-check, .form-control {
+    margin-top: 8px;
+}

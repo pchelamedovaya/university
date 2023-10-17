@@ -4,30 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
-    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="/university_war_exploded/styles/userslist.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        body {
-            padding: 0 35px;
-        }
-        .container {
-            margin-bottom: 70px;
-            margin-top: 50px !important;
-        }
-        .col-md-4 {
-            width: 100%;
-        }
-        .mb-3 {
-            display: flex;
-            gap: 25px;
-        }
-        .card-title {
-            margin-bottom: 20px;
-        }
-        p {
-            margin: 0;
-        }
-    </style>
 </head>
 <body>
 <@macros.navbar/>

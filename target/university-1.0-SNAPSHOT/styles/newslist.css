@@ -1,0 +1,9 @@
+@import "base.css";
+.container {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.news-title-link {
+    color: black;
+    text-decoration: none;
+}

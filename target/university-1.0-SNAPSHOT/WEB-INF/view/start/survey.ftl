@@ -2,29 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/university_war_exploded/styles/survey.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Survey</title>
-    <style>
-        .survey-container {
-            display: flex;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            justify-content: start;
-            align-items: center;
-        }
-        .title {
-            margin-bottom: 35px;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-check, .form-control {
-            margin-top: 8px;
-        }
-        body {
-            padding: 0 35px;
-        }
-    </style>
 </head>
 <body>
     <div class="survey-container">

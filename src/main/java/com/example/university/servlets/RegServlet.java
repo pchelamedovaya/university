@@ -16,8 +16,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class RegServlet extends HttpServlet {
+    private final String USERNAME_REG = "^[a-zA-Z0-9_]+$";
+    private final String NAME_LASTNAME_REG = "^[A-Z][a-z]*(?:-[A-Z][a-z]*)*$";
     public void init() {
         ConfigSingleton.setServletContext(this.getServletContext());
+    }
+
+    public boolean inputIsValid(String username, String name, String lastname, String password) {
+        if (
+                username.isEmpty() ||
+                name.isEmpty() ||
+                lastname.isEmpty() ||
+                password.isEmpty() ||
+                !username.matches(USERNAME_REG) ||
+                !name.matches(NAME_LASTNAME_REG) ||
+                !username.matches(NAME_LASTNAME_REG)
+        ) {
+            return false;
+        }
+        return true;
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -52,24 +69,28 @@ public class RegServlet extends HttpServlet {
         String password = request.getParameter("password");
         String role = request.getParameter("role");
         User user = new User(username, name, lastname, role);
-        try {
-            boolean autentificationResult = userService.authUser(username, password);
-            if (autentificationResult) {
-                Helper.redirect(response, request, "/survey");
-            } else {
-                try {
-                    boolean registrationResult = userService.registerUser(user, password);
-                    if (registrationResult) {
-                        Helper.redirect(response, request, "/auth");
-                    } else {
-                        response.getWriter().println("REG ERROR");
+        if (!inputIsValid(username, name, lastname, password)) {
+            try {
+                boolean autentificationResult = userService.authUser(username, password);
+                if (autentificationResult) {
+                    Helper.redirect(response, request, "/survey");
+                } else {
+                    try {
+                        boolean registrationResult = userService.registerUser(user, password);
+                        if (registrationResult) {
+                            Helper.redirect(response, request, "/auth");
+                        } else {
+                            response.getWriter().println("REG ERROR");
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
                     }
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
                 }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } else {
+            response.getWriter().println("INPUT VALUE ERROR");
         }
     }
 }

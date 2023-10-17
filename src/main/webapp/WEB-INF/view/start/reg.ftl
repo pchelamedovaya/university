@@ -60,7 +60,7 @@
         const messageUsername = document.getElementById("messageUsername");
         const nameInput = document.getElementById("name");
         const nameREG = /^[A-Z][a-z]*(?:-[A-Z][a-z]*)*$/;
-        const messageName = document.getElementById("messageNameLastname");
+        const messageName = document.getElementById("messageName");
         const lastnameInput = document.getElementById("lastname");
         const lastnameREG = /^[A-Z][a-z]*(?:-[A-Z][a-z]*)*$/;
         const messageLastname = document.getElementById("messageLastname");

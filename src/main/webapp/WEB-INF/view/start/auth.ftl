@@ -4,30 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Authentication</title>
-    <link rel="stylesheet" href="../styles/index.css">
+    <link type="text/css" rel="stylesheet" href="/university_war_exploded/styles/start.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        body {
-            padding: 0 35px;
-        }
-        .form-check, .form-group{
-            margin-top: 12px;
-        }
-        button {
-            margin-top: 15px;
-        }
-        label {
-            margin-bottom: 4px;
-        }
-    </style>
 </head>
 <body>
 <#--    <@macros.navbar/>-->
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h2 class="text-center">User authentication</h2>
-                <form method="POST">
+                <h2 class="text-center">Authentication</h2>
+                <form method="POST" novalidate>
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" class="form-control" id="username" name="username" required oninput="count(this, 32)">

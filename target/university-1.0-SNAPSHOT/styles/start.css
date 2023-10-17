@@ -1,0 +1,21 @@
+@import"base.css";
+.btn.btn-primary.btn-block {
+    margin-top: 15px;
+}
+label {
+    margin-bottom: 4px;
+}
+.form-group {
+    min-height: 80px;
+    margin-top: 12px;
+    position: relative;
+}
+.form-control {
+    position: relative;
+}
+.form-text {
+    position: absolute;
+}
+.form-check {
+    margin-top: 12px;
+}

@@ -26,7 +26,7 @@ public class UserService extends UserServiceSimple {
         statement.setString(5, user.getRole());
         return statement.executeUpdate() > 0;
     }
-//    /*
+
     public static void main(String[] args) {
         UserService userService = new UserService(ConnectionProvider.getConn().getConnection());
         UserServiceSimple userServiceSimple = new UserServiceSimple(ConnectionProvider.getConn().getConnection());
@@ -52,5 +52,4 @@ public class UserService extends UserServiceSimple {
             throw new RuntimeException(e);
         }
     }
-//    */
 }

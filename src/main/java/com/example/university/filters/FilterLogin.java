@@ -1,7 +1,9 @@
 package com.example.university.filters;
 
 import com.example.university.helpers.Helper;
+import com.example.university.services.UserService;
 import com.example.university.utils.ConfigSingleton;
+import com.example.university.utils.ConnectionProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 

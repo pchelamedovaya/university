@@ -29,6 +29,7 @@ public class NewsListServlet extends HttpServlet {
             Template template = ConfigSingleton.getConfig().getTemplate("/news/list.ftl");
             Map<String, Object> newsList = new HashMap<>();
             newsList.put("newsList", newsDAO.getNewsList(NEWS_LIMIT));
+            newsList.put("autentificated", true);
             template.process(newsList, response.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();

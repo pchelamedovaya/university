@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AuthServlet extends HttpServlet {
     public void init() {
@@ -26,14 +28,19 @@ public class AuthServlet extends HttpServlet {
         UserService userService = new UserService(ConnectionProvider.getConn().getConnection());
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        boolean autentificated = false;
         try {
             boolean autentificationResult = userService.authUser(username, password);
             if (autentificationResult) {
+                autentificated = true;
+                request.setAttribute("autentificated", autentificated);
                 Helper.redirect(response, request, "/survey");
             } else {
                 try {
                     Template template = ConfigSingleton.getConfig().getTemplate("/start/auth.ftl");
-                    template.process(null, response.getWriter());
+                    Map<String, Object> root = new HashMap<>();
+                    root.put("autentificated", autentificated);
+                    template.process(root, response.getWriter());
                 } catch (TemplateException e) {
                     throw new RuntimeException(e);
                 }
@@ -52,6 +59,7 @@ public class AuthServlet extends HttpServlet {
         try {
             boolean autentificationResult = userService.authUser(username, password);
             if (autentificationResult) {
+                request.setAttribute("autentificated", true);
                 Helper.redirect(response, request, "/survey");
                 if (rememberMe != null) {
                     Cookie authCookie = new Cookie("auth", "true");

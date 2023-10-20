@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <@macros.navbar/>
+    <@macros.navbar autentificated/>
     <div class="title-text">
         <h1>Help for students</h1>
     </div>
@@ -26,9 +26,6 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="time" name="time" placeholder="Suitable days of the week, time for you">
             </div>
-<#--            <div class="form-group">-->
-<#--                <input type="text" class="form-control" id="format" name="format" placeholder="Suggested format">-->
-<#--            </div>-->
             <div class="form-group">
                 <select class="form-control" id="format" name="format" required>
                     <option value="" disabled selected>Suggested format</option>
@@ -55,7 +52,7 @@
                         <p class="card-text">Author: ${advt.nameAuthor} ${advt.lastnameAuthor}</p>
                         <p class="card-text">Time: ${advt.time}</p>
                         <p class="card-text">Format: ${advt.format}</p>
-                        <p class="card-text">${advt.message}</p>
+                        <h5 class="card-text">${advt.message}</h5>
                         <p class="card-text">TG: ${advt.url}</p>
                     </div>
                 </div>

@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <@macros.navbar/>
+    <@macros.navbar autentificated/>
     <#list newsList as news>
         <div class="container">
             <div class="row">
@@ -20,7 +20,8 @@
                     <h2 class="news-title">
                         <a class="news-title-link" href="/university_war_exploded/news/detail?id=${news.id}">${news.title}</a>
                     </h2>
-                    <p class="news-category">Category: ${news.category}</p>
+                    <h5 class="news-category">Category: ${news.category}</h5>
+                    <div class="block" style="height: 18px"></div>
                     <div class="news-content">${news.shortdescription}</div>
                 </div>
             </div>

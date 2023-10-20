@@ -15,12 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SearchForUsersServlet extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.getWriter().println("SEARCH");
-//    }
     private UserDAO userDAO;
-    private final int USERS_LIMIT = 8;
+    private final int USERS_LIMIT = 25;
 
     public void init() {
         ConfigSingleton.setServletContext(this.getServletContext());
@@ -34,6 +30,7 @@ public class SearchForUsersServlet extends HttpServlet {
             Template template = ConfigSingleton.getConfig().getTemplate("/users/list.ftl");
             Map<String, Object> newsList = new HashMap<>();
             newsList.put("usersList", userDAO.getAllUsers(USERS_LIMIT));
+            newsList.put("autentificated", true);
             template.process(newsList, response.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();

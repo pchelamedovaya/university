@@ -33,6 +33,7 @@ public class NewsDetailServlet extends HttpServlet {
             root.put("shortdescription", news.getShortdescription());
             root.put("content", news.getContent());
             root.put("date", news.getDate());
+            root.put("autentificated", true);
             Template template = ConfigSingleton.getConfig().getTemplate("/news/detail.ftl");
             template.process(root, resp.getWriter());
 

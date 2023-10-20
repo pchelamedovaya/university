@@ -35,6 +35,7 @@ public class AdvtServlet extends HttpServlet {
             Template template = ConfigSingleton.getConfig().getTemplate("/help/advt.ftl");
             Map<String, Object> advtList = new HashMap<>();
             advtList.put("advtList", advtDAO.getAdvtList(NEWS_LIMIT));
+            advtList.put("autentificated", true);
             template.process(advtList, resp.getWriter());
         } catch (TemplateException e) {
             throw new RuntimeException(e);

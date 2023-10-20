@@ -85,6 +85,15 @@
         <url-pattern>/help</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AboutServlet</servlet-name>
+        <servlet-class>com.example.university.servlets.AboutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AboutServlet</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>loginfilter</filter-name>
         <filter-class>com.example.university.filters.FilterLogin</filter-class>

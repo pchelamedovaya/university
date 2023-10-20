@@ -76,6 +76,15 @@
         <url-pattern>/news/detail</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AdvtServlet</servlet-name>
+        <servlet-class>com.example.university.servlets.AdvtServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdvtServlet</servlet-name>
+        <url-pattern>/help</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>loginfilter</filter-name>
         <filter-class>com.example.university.filters.FilterLogin</filter-class>

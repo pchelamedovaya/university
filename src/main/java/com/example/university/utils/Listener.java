@@ -1,5 +1,6 @@
 package com.example.university.utils;
 
+import com.example.university.dao.AdvtDAO;
 import com.example.university.dao.NewsDAO;
 import com.example.university.dao.UserDAO;
 //import com.example.university.dao.UserDAO;
@@ -16,5 +17,6 @@ public class Listener implements ServletContextListener {
         ConnectionProvider connectionProvider = ConnectionProvider.getConn();
         sce.getServletContext().setAttribute("newsDAO", new NewsDAO(connectionProvider));
         sce.getServletContext().setAttribute("userDAO", new UserDAO(connectionProvider));
+        sce.getServletContext().setAttribute("advtDAO", new AdvtDAO(connectionProvider));
     }
 }

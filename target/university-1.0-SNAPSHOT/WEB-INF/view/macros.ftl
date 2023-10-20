@@ -8,9 +8,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/university_war_exploded/news/list">News</a>
                 </li>
-<#--                <li class="nav-item">-->
-<#--                    <a class="nav-link" href="/university_war_exploded/auth">Sign in</a>-->
-<#--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="/university_war_exploded/help">Help</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/university_war_exploded/user/search">For student</a>
                 </li>

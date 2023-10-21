@@ -1,5 +1,5 @@
 <#macro navbar autentificated>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav style="padding-left: 35px" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <#if autentificated>

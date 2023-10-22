@@ -66,7 +66,6 @@ public class AuthServlet extends HttpServlet {
                     Helper.redirect(response, request, "/survey");
                 }
                 request.getSession().setAttribute("auth", username);
-
             } else {
                 Helper.redirect(response, request, "/reg");
             }

@@ -94,8 +94,8 @@ h5 {
 }
 input {
     padding: 7px 10px;
-    border: none;
-    box-shadow: none;
+    /*border: none;*/
+    /*box-shadow: none;*/
     width: 400px;
     border-radius: 3px;
 }

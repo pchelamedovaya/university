@@ -4,7 +4,7 @@
             <ul class="navbar-nav">
                 <#if autentificated>
                     <li class="nav-item">
-                        <a class="nav-link" href="/university_war_exploded/office">Home</a>
+                        <a class="nav-link" href="/university_war_exploded/office?id=">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/university_war_exploded/news/list">News</a>

@@ -41,7 +41,6 @@ public class User {
         this.name = name;
         this.lastname = lastname;
     }
-
     public Integer getId() {
         return id;
     }

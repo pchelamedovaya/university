@@ -15,6 +15,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/university_war_exploded/user/search">For student</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/university_war_exploded/forum">Forum</a>
+                    </li>
                 <#else>
                     <li class="nav-item">
                         <a class="nav-link" href="/university_war_exploded/about">About</a>

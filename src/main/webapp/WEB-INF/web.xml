@@ -77,6 +77,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>PostServlet</servlet-name>
+        <servlet-class>com.example.university.servlets.PostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PostServlet</servlet-name>
+        <url-pattern>/forum</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>AdvtServlet</servlet-name>
         <servlet-class>com.example.university.servlets.AdvtServlet</servlet-class>
     </servlet>

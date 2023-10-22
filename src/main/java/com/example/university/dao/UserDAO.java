@@ -1,5 +1,6 @@
 package com.example.university.dao;
 
+import com.example.university.entity.News;
 import com.example.university.entity.User;
 import com.example.university.utils.ConnectionProvider;
 
@@ -16,25 +17,18 @@ public class UserDAO {
         this.connectionProvider = connectionProvider;
     }
 
-    public User getUser(String username, String password) throws SQLException {
+    public User getUser(int id) throws SQLException {
         PreparedStatement preparedStatement = this.connectionProvider.
-                getConnection().prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
-        preparedStatement.setString(1, username);
-        preparedStatement.setString(2, password);
+                getConnection().prepareStatement("SELECT * FROM users WHERE id = ?");
+        preparedStatement.setInt(1, id);
         ResultSet result = preparedStatement.executeQuery();
         boolean hasFirst = result.next();
         if (hasFirst) {
             return new User(
                     result.getInt("id"),
                     result.getString("username"),
-                    null,
                     result.getString("name"),
-                    result.getString("lastname"),
-                    null,
-                    null,
-                    null,
-                    null,
-                    result.getString("role")
+                    result.getString("lastname")
             );
         } else {
             return null;
@@ -57,8 +51,7 @@ public class UserDAO {
                     null,
                     null,
                     null,
-                    null,
-                    result.getString("role")
+                    null
             );
             usersList.add(user);
         }

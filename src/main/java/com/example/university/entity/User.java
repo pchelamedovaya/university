@@ -10,9 +10,8 @@ public class User {
     private String institute;
     private String group;
     private String about;
-    private String role;
 
-    public User(Integer id, String username, String password, String name, String lastname, String gender, String institute, String group, String about, String role) {
+    public User(Integer id, String username, String password, String name, String lastname, String gender, String institute, String group, String about) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -22,33 +21,6 @@ public class User {
         this.institute = institute;
         this.group = group;
         this.about = about;
-        this.role = role;
-    }
-
-    public User(String username, String password, String name, String lastame, String gender, String institute, String group, String about, String role) {
-        this.id = null;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.lastname = lastname;
-        this.gender = gender;
-        this.institute = institute;
-        this.group = group;
-        this.about = about;
-        this.role = role;
-    }
-
-    public User(String username, String name, String lastname, String role) {
-        this.id = null;
-        this.username = username;
-        this.password = null;
-        this.name = name;
-        this.lastname = lastname;
-        this.gender = null;
-        this.institute = null;
-        this.group = null;
-        this.about = null;
-        this.role = role;
     }
 
     public User(String username, String name, String lastname) {
@@ -61,7 +33,13 @@ public class User {
         this.institute = null;
         this.group = null;
         this.about = null;
-        this.role = null;
+    }
+
+    public User(Integer id, String username, String name, String lastname) {
+        this.id = id;
+        this.username = username;
+        this.name = name;
+        this.lastname = lastname;
     }
 
     public Integer getId() {
@@ -134,13 +112,5 @@ public class User {
 
     public void setAbout(String about) {
         this.about = about;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 }

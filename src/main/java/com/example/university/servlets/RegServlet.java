@@ -74,8 +74,7 @@ public class RegServlet extends HttpServlet {
         String name = request.getParameter("name");
         String lastname = request.getParameter("lastname");
         String password = request.getParameter("password");
-        String role = request.getParameter("role");
-        User user = new User(username, name, lastname, role);
+        User user = new User(username, name, lastname);
         if (!inputIsValid(username, name, lastname, password)) {
             try {
                 boolean autentificationResult = userService.authUser(username, password);

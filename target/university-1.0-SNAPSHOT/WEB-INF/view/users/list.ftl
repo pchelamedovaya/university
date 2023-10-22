@@ -23,9 +23,9 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h5 class="card-title">Username</h5>
-                            <p class="card-text-name">Name: Name</p>
-                            <p class="card-text-lastname">Lastname: Lastname</p>
+                            <h5 class="card-title">${user.username}</h5>
+                            <p class="card-text-name">Name: ${user.name}</p>
+                            <p class="card-text-lastname">Lastname: ${user.lastname}</p>
                         </div>
                     </div>
                 </div>

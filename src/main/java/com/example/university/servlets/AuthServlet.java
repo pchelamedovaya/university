@@ -2,7 +2,6 @@ package com.example.university.servlets;
 
 import com.example.university.helpers.Helper;
 import com.example.university.services.UserService;
-import com.example.university.services.UserServiceSimple;
 import com.example.university.utils.ConfigSingleton;
 import com.example.university.utils.ConnectionProvider;
 import freemarker.template.Template;
@@ -52,7 +51,7 @@ public class AuthServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        UserServiceSimple userService = new UserServiceSimple(ConnectionProvider.getConn().getConnection());
+        UserService userService = new UserService(ConnectionProvider.getConn().getConnection());
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberme");

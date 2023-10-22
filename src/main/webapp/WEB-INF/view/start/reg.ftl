@@ -82,7 +82,7 @@
             } else {
                 nameInput.classList.remove("is-valid");
                 nameInput.classList.add("is-invalid");
-                messageName.textContent = "The field is filled in incorrectly, please pay attention to the case of letters.";
+                messageName.textContent = "Please pay attention to the case of letters.";
             }
         })
         lastnameInput.addEventListener("input", function () {
@@ -93,7 +93,7 @@
             } else {
                 lastnameInput.classList.remove("is-valid");
                 lastnameInput.classList.add("is-invalid");
-                messageLastname.textContent = "The field is filled in incorrectly, please pay attention to the case of letters.";
+                messageLastname.textContent = "Please pay attention to the case of letters.";
             }
         })
     </script>

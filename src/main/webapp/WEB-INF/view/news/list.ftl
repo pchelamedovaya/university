@@ -8,7 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <@macros.navbar autentificated/>
+<@macros.navbar autentificated/>
+<div class="container-newsList">
     <#list newsList as news>
         <div class="container">
             <div class="row">
@@ -16,7 +17,7 @@
                     <img src="${news.url}" alt="image" class="img-fluid">
                 </div>
                 <div class="col-md-8">
-                    <p class="news-date">${news.date}</p>
+                    <p class="news-date">${news.date?string("dd-MM-YYYY")}</p>
                     <h2 class="news-title">
                         <a class="news-title-link" href="/university_war_exploded/news/detail?id=${news.id}">${news.title}</a>
                     </h2>
@@ -27,5 +28,6 @@
             </div>
         </div>
     </#list>
+</div>
 </body>
 </html>

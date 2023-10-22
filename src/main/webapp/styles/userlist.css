@@ -1,0 +1,38 @@
+body {
+    background: #edeef0 !important;
+}
+.container-my {
+    margin: 50px 185px !important;
+    font-size: 17px;
+}
+div.col-md-4 {
+    width: 100%;
+}
+.card-title {
+    margin-bottom: 15px !important;
+}
+.card-text-name {
+    margin-bottom: 5px !important;
+}
+.card {
+    border-radius: 15px !important;
+    padding: 0 15px !important;
+}
+.card-text-lastname {
+    margin: 0;
+}
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 35px 35px 15px;
+    background: white;
+    border-radius: 15px;
+}
+.container-search {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+input {
+    border-radius: 8px !important;
+}

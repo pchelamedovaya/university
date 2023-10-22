@@ -9,26 +9,24 @@
 </head>
 <body>
     <@macros.navbar autentificated/>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="text-center">Authentication</h2>
-                <form method="POST" novalidate>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required oninput="count(this, 32)">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required oninput="count(this, 12)">
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="rememberme" name="rememberme">
-                        <label class="form-check-label" for="rememberme">Remember me</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block mt-3">Sign in</button>
-                </form>
-            </div>
+    <div class="container">
+        <div class="container-wrapper">
+            <h2 class="text-center">Please sign in</h2>
+            <form method="POST" novalidate>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required oninput="count(this, 32)">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required oninput="count(this, 12)">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberme" name="rememberme">
+                    <label class="form-check-label" for="rememberme">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </form>
         </div>
     </div>
     <script>

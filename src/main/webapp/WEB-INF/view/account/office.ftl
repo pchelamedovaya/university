@@ -17,10 +17,10 @@
         <div class="account-card-info">
             <h3 class="name-info">Name</h3>
             <h3 class="lastname-info">Lastname</h3>
-            <h5 class="bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
+            <p class="bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
                 animi beatae blanditiis corporis ducimus eius, facere illum laboriosam
                 nam nulla officiis optio pariatur quibusdam recusandae repellendus sed sint,
-                soluta vel.</h5>
+                soluta vel.</p>
         </div>
         <div class="account-card-button">
             <button type="button" class="btn btn-primary button-my" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>

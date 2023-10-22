@@ -1,4 +1,3 @@
-@import"base.css";
 .btn.btn-primary.btn-block {
     margin-top: 15px;
 }
@@ -18,4 +17,36 @@ label {
 }
 .form-check {
     margin-top: 12px;
+}
+body {
+    background: #edeef0 !important;
+}
+.container-wrapper {
+    padding: 30px;
+    background: white;
+    margin-top: 55px;
+    width: 375px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+button {
+    width: 100%;
+
+}
+.btn.btn-primary.btn-block{
+    margin-top: 30px;
+}
+.text-center {
+    margin-top: 35px;
+}
+form {
+    margin-bottom: 30px;
+    margin-top: 35px;
 }

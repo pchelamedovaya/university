@@ -6,15 +6,16 @@ img {
     border-style: none;
     width: 250px;
     height: 375px;
-    margin-right: 50px;
+    margin-right: 25px;
     margin-bottom: 15px;
+
 }
 .container-my {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    padding: 0 185px;
+    margin: 0 185px;
 }
 .wrapper-my {
     display: grid;
@@ -22,11 +23,16 @@ img {
     justify-content: space-between;
     align-items: start;
     width: 100%;
-    gap: 100px;
+    gap: 50px;
 }
-.link_cur {
+.link_cur,
+.link_cur:hover {
     color: black;
     text-decoration: none;
+}
+.link_cur:hover {
+    color: black;
+    text-decoration: underline;
 }
 .container-card {
     display: flex;
@@ -36,29 +42,16 @@ ul {
     padding-left: 0;
     list-style-type: none;
 }
-.about {
-    margin-top: 50px;
-    margin-bottom: 40px;
-}
-.variant {
-    padding-left: 50px;
-    margin-top: 20px;
-    margin-bottom: 60px;
-}
 .info {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.my-card {
-    padding: 15px 30px;
-    margin-bottom: 35px;
-}
 .facultyName {
     margin-top: -10px;
 }
 .speciality {
-    padding-left: 60px;
+    padding-left: 50px;
 }
 .marg-b {
     margin-bottom: 30px;
@@ -74,7 +67,7 @@ ul {
     flex-direction: row;
     justify-content: start;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 50px;
     gap: 30px;
 }
 .contact-inf {
@@ -86,4 +79,51 @@ ul {
 }
 .ul-faculty {
     margin-left: 30px;
+}
+body {
+    background: #edeef0 !important;
+}
+.container-about {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    margin: 50px 0;
+}
+.variant {
+    padding-left: 50px;
+}
+.about {
+    margin-top: -10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.three {
+    margin-bottom: 0 !important;
+}
+.history,
+.missions {
+    margin-bottom: 10px !important;
+}
+.container-members,
+.container-faculty {
+    background: white;
+    padding: 35px 35px 0;
+    border-radius: 15px;
+}
+.card {
+    border-radius: 15px !important;
+    padding: 30px !important;
+    margin-bottom: 35px !important;
+}
+.history-one,
+.history-two,
+.missions-two {
+    line-height: 30px !important;
+}
+.missions-two {
+    margin-bottom: 15px;
+}
+.title-faculty,
+.title-members {
+    margin-top: -10px;
 }

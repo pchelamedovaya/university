@@ -1,0 +1,28 @@
+.container-my {
+    background: white;
+    padding: 35px !important;
+    margin: 50px 185px !important;
+    border-radius: 15px;
+    font-size: 17px;
+}
+body {
+    background: #edeef0 !important;
+}
+.content {
+    line-height: 30px
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1.75fr;
+    margin-bottom: 30px;
+}
+.title {
+    margin-top: -6px;
+    margin-bottom: 10px;
+}
+.category {
+    margin-bottom: 30px;
+}
+.description {
+    margin-bottom: 10px;
+}

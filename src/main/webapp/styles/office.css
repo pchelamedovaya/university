@@ -1,6 +1,9 @@
-@import "base.css";
 * {
     box-sizing: border-box;
+}
+a {
+    color: black;
+    text-decoration: none;
 }
 body {
     background: #edeef0 !important;
@@ -10,9 +13,10 @@ body {
     grid-template-columns: 1.25fr 2fr;
     justify-content: space-between;
     align-items: start;
-    padding: 35px 185px !important;
+    padding: 50px 185px !important;
     gap: 100px;
     max-width: 100% !important;
+    font-size: 17px;
 }
 .wrapper-account-card {
     background: white;
@@ -20,7 +24,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 35px 35px;
+    padding: 50px 35px;
     border-radius: 15px;
 }
 .img {

@@ -1,4 +1,2 @@
-<#--<div class="mb-3">-->
-    <input type="text" class="form-control" id="searchInput" placeholder="Search for name">
-    <button class="btn btn-primary" id="searchButton">Search</button>
-<#--</div>-->
+<input type="text" style="padding-left: 30px" class="form-control" id="searchInput" placeholder="Student search">
+<button class="btn btn-primary" id="searchButton">Search</button>

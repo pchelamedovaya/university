@@ -1,9 +1,22 @@
-@import "base.css";
 .container {
-    margin-bottom: 50px;
-    margin-top: 50px;
+    margin-bottom: 25px;
+    background: white;
+    padding: 35px !important;
+    border-radius: 15px;
+    font-size: 17px;
 }
-.news-title-link {
+.news-title-link,
+.news-title-link:hover {
     color: black;
     text-decoration: none;
+}
+.news-title-link:hover {
+    color: black;
+    text-decoration: underline;
+}
+body {
+    background: #edeef0 !important;
+}
+.container-newsList {
+    margin-top: 50px;
 }

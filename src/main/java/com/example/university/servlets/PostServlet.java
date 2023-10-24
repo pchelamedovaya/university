@@ -16,12 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PostServlet extends HttpServlet {
     private PostDAO postDAO;
-    private final int NEWS_LIMIT = 15;
-
     private static ConnectionProvider connectionProvider;
 
     public void init() {
@@ -34,10 +33,11 @@ public class PostServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         try {
             Template template = ConfigSingleton.getConfig().getTemplate("/forum/post.ftl");
-            Map<String, Object> postList = new HashMap<>();
-            postList.put("postList", postDAO.getPostList(NEWS_LIMIT));
-            postList.put("autentificated", true);
-            template.process(postList, resp.getWriter());
+            List<Post> postList = postDAO.getPostList();
+            Map<String, Object> root = new HashMap<>();
+            root.put("postList", postList);
+            root.put("autentificated", true);
+            template.process(root, resp.getWriter());
         } catch (TemplateException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
@@ -57,7 +57,7 @@ public class PostServlet extends HttpServlet {
             Post post = new Post(author, title, text, hashtags);
             boolean addResult = postService.addPost(post);
             if (addResult) {
-                Helper.redirect(resp, req, "/forum");
+                Helper.redirect(resp, req, "/forum/list");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

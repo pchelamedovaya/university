@@ -16,6 +16,10 @@ public class Post {
         return commentList;
     }
 
+    public void addComment(Comment comment) {
+        commentList.add(comment);
+    }
+
     public Post(Integer id, String author, String title, String text, String hashtags) {
         this.id = id;
         this.author = author;

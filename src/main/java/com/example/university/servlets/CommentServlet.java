@@ -1,5 +1,6 @@
 package com.example.university.servlets;
 
+import com.example.university.dao.CommentDAO;
 import com.example.university.dao.PostDAO;
 import com.example.university.entity.Comment;
 import com.example.university.entity.Post;
@@ -20,10 +21,12 @@ import java.util.Map;
 
 public class CommentServlet extends HttpServlet {
     private PostDAO postDAO;
+    private CommentDAO commentDAO;
 
     public void init() {
         ConfigSingleton.setServletContext(this.getServletContext());
         postDAO = (PostDAO) getServletContext().getAttribute("postDAO");
+        commentDAO = (CommentDAO) getServletContext().getAttribute("commentDAO");
     }
 
     @Override
@@ -38,7 +41,7 @@ public class CommentServlet extends HttpServlet {
                 root.put("title", post.getTitle());
                 root.put("text", post.getText());
                 root.put("hashtags", post.getHashtags());
-                root.put("commentList", postDAO.getCommentList());
+                root.put("commentList", commentDAO.getCommentList(Integer.parseInt(id)));
                 root.put("autentificated", true);
                 Template template = ConfigSingleton.getConfig().getTemplate("/forum/detail.ftl");
                 template.process(root, resp.getWriter());

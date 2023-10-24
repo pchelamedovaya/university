@@ -20,5 +20,6 @@ public class Listener implements ServletContextListener {
         sce.getServletContext().setAttribute("facultyDAO", new FacultyDAO(connectionProvider));
         sce.getServletContext().setAttribute("specialityDAO", new SpecialityDAO(connectionProvider));
         sce.getServletContext().setAttribute("postDAO", new PostDAO(connectionProvider));
+        sce.getServletContext().setAttribute("commentDAO", new CommentDAO(connectionProvider));
     }
 }

@@ -1,6 +1,7 @@
 package com.example.university.dao;
 
 import com.example.university.entity.Comment;
+import com.example.university.entity.Post;
 import com.example.university.utils.ConnectionProvider;
 
 import java.sql.PreparedStatement;
@@ -34,5 +35,21 @@ public class CommentDAO {
             commentList.add(comment);
         }
         return commentList;
+    }
+
+    public Comment getDetail(int id) throws SQLException {
+        PreparedStatement preparedStatement = this.connectionProvider.getConnection().prepareStatement("SELECT * FROM post WHERE id = ?");
+        preparedStatement.setInt(1, id);
+        ResultSet result = preparedStatement.executeQuery();
+        boolean hasFirst = result.next();
+        if (hasFirst) {
+            return new Comment(
+                    result.getInt("id"),
+                    result.getString("author"),
+                    result.getString("text")
+            );
+        } else {
+            return null;
+        }
     }
 }

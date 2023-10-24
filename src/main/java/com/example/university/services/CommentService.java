@@ -3,9 +3,7 @@ package com.example.university.services;
 import com.example.university.entity.Comment;
 import com.example.university.utils.ConnectionProvider;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class CommentService {
     private static String INSERT_QUERY = "INSERT INTO comment (post_id, author, text) VALUES(?, ?, ?)";
@@ -17,11 +15,19 @@ public class CommentService {
     }
 
     public boolean addComment(Comment comment) throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(INSERT_QUERY);
+        PreparedStatement statement = connection.prepareStatement(INSERT_QUERY, Statement.RETURN_GENERATED_KEYS);
         statement.setInt(1, comment.getPostId());
         statement.setString(2, comment.getAuthor());
         statement.setString(3, comment.getText());
-        return statement.executeUpdate() > 0;
+        int changeRowsCol = statement.executeUpdate();
+        if (changeRowsCol > 0) {
+            ResultSet keys = statement.getGeneratedKeys();
+            if (keys.next()) {
+                comment.setId(keys.getInt(1));
+            }
+            return true;
+        }
+        return false;
     }
 
     public static void main(String[] args) {

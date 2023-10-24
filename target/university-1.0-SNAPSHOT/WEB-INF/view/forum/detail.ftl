@@ -19,6 +19,7 @@
         </div>
     </div>
     <form class="commentpost" method="POST">
+        <input type="hidden" name="postId" value="${postId}">
         <div class="form-group">
             <input type="text" class="form-control" id="author" name="author" placeholder="Your name">
         </div>

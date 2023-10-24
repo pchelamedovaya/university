@@ -42,6 +42,7 @@ public class CommentServlet extends HttpServlet {
                 root.put("text", post.getText());
                 root.put("hashtags", post.getHashtags());
                 root.put("commentList", commentDAO.getCommentList(Integer.parseInt(id)));
+                root.put("postId", id);
                 root.put("autentificated", true);
                 Template template = ConfigSingleton.getConfig().getTemplate("/forum/detail.ftl");
                 template.process(root, resp.getWriter());

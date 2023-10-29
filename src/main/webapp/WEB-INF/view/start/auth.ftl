@@ -29,12 +29,6 @@
             </form>
         </div>
     </div>
-    <script>
-        function count(input, max) {
-            if (input.value.length > max) {
-                input.value = input.value.substring(0, max);
-            }
-        }
-    </script>
+    <script src="/../university_war_exploded/js/auth.js"></script>
 </body>
 </html>

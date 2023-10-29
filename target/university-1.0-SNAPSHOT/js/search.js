@@ -1,4 +1,3 @@
-console.log('скрипт выполняется')
 $(document).ready(function () {
     function f(query) {
         $.ajax({
@@ -33,8 +32,6 @@ $(document).ready(function () {
         });
     }
 
-    f("");
-
     $("#searchButton").click(function () {
         f($("#query").val());
     })
@@ -42,4 +39,5 @@ $(document).ready(function () {
     $("#query").on("input", function () {
         f($("#query").val());
     })
+
 });

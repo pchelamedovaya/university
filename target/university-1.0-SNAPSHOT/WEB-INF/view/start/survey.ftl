@@ -106,21 +106,7 @@
             </div>
         </div>
     </form>
-    <script>
-        function count(inputF, counterE, max) {
-            const input = document.getElementById(inputF);
-            const counter = document.getElementById(counterE);
-            input.addEventListener('input', function () {
-                const currentLength = input.value.length;
-                counter.textContent = currentLength;
-                if (currentLength > max) {
-                    input.value = input.value.substring(0, max);
-                    counter.textContent = max;
-                }
-            });
-        }
-        count('comments', 'commentsCount', 440);
-    </script>
+    <script src="/../university_war_exploded/js/survey.js"></script>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

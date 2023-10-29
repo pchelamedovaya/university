@@ -6,11 +6,9 @@
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
-        <url-pattern>*.css</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
         <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -56,6 +54,15 @@
     <servlet-mapping>
         <servlet-name>SearchForUsersServlet</servlet-name>
         <url-pattern>/user/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AjaxSearchForUsersServlet</servlet-name>
+        <servlet-class>com.example.university.servlets.AjaxSearchForUsersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxSearchForUsersServlet</servlet-name>
+        <url-pattern>/user/dosearch</url-pattern>
     </servlet-mapping>
 
     <servlet>

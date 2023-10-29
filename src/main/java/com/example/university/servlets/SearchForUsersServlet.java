@@ -5,7 +5,6 @@ import com.example.university.utils.ConfigSingleton;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,10 +27,10 @@ public class SearchForUsersServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try {
             Template template = ConfigSingleton.getConfig().getTemplate("/users/list.ftl");
-            Map<String, Object> newsList = new HashMap<>();
-            newsList.put("usersList", userDAO.getAllUsers(USERS_LIMIT));
-            newsList.put("autentificated", true);
-            template.process(newsList, response.getWriter());
+            Map<String, Object> usersList = new HashMap<>();
+            usersList.put("usersList", userDAO.getAllUsers(USERS_LIMIT));
+            usersList.put("autentificated", true);
+            template.process(usersList, response.getWriter());
         } catch (TemplateException e) {
             e.printStackTrace();
         } catch (SQLException e) {

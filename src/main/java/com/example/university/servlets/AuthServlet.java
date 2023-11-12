@@ -8,10 +8,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -59,6 +56,10 @@ public class AuthServlet extends HttpServlet {
             boolean autentificationResult = userService.authUser(username, password);
             if (autentificationResult) {
                 request.setAttribute("autentificated", true);
+
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username);
+
                 Helper.redirect(response, request, "/survey");
                 if (rememberMe != null) {
                     Cookie authCookie = new Cookie("auth", "true");

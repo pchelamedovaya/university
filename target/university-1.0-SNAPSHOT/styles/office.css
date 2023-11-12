@@ -5,6 +5,15 @@ a {
     color: black;
     text-decoration: none;
 }
+select:required:invalid {
+    color: rgb(128, 128, 128);
+}
+option[value=""][disabled] {
+    display: none;
+}
+option {
+    color: black;
+}
 body {
     background: #edeef0 !important;
 }
@@ -66,7 +75,8 @@ img {
 .lastname,
 .gender,
 .institute,
-.group {
+.group,
+.bio {
     width: 100%;
     text-align: center;
     background: white;
@@ -86,7 +96,8 @@ h5 {
 }
 .modal-footer {
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
+    align-items: center;
 }
 .btn.btn-primary.button-my {
     padding-left: 65px;
@@ -94,10 +105,10 @@ h5 {
 }
 input {
     padding: 7px 10px;
-    border: none;
+    border: 1px solid #ced4da;
     box-shadow: none;
     width: 400px;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 .wrapper-account-info-modal {
     display: flex;

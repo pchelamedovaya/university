@@ -9,9 +9,11 @@ public class User {
     private String gender;
     private String institute;
     private String group;
-    private String about;
+    private String bio;
 
-    public User(Integer id, String username, String password, String name, String lastname, String gender, String institute, String group, String about) {
+    public User() {}
+
+    public User(Integer id, String username, String password, String name, String lastname, String gender, String institute, String group, String bio) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -20,7 +22,7 @@ public class User {
         this.gender = gender;
         this.institute = institute;
         this.group = group;
-        this.about = about;
+        this.bio = bio;
     }
 
     public User(String username, String name, String lastname) {
@@ -32,7 +34,7 @@ public class User {
         this.gender = null;
         this.institute = null;
         this.group = null;
-        this.about = null;
+        this.bio = null;
     }
 
     public User(Integer id, String username, String name, String lastname) {
@@ -105,11 +107,11 @@ public class User {
         this.group = group;
     }
 
-    public String getAbout() {
-        return about;
+    public String getBio() {
+        return bio;
     }
 
-    public void setAbout(String about) {
-        this.about = about;
+    public void setBio(String about) {
+        this.bio = about;
     }
 }

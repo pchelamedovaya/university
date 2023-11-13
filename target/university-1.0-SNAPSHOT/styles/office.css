@@ -120,3 +120,9 @@ input {
     display: flex;
     justify-content: center;
 }
+.tooltip.custom-tooltip {
+    --bs-tooltip-bg: #0d6efd;
+    --bs-tooltip-color: white;
+    --bs-tooltip-padding-x: 20px;
+    --bs-tooltip-padding-y: 8px;
+}

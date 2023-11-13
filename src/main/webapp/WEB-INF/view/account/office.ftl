@@ -5,13 +5,15 @@
     <title>Account</title>
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="/university_war_exploded/styles/office.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"></head>
 </head>
 <body>
 <@macros.navbar autentificated/>
 <div class="container">
     <div class="wrapper-account-card">
-        <div class="img">
+        <div class="img" data-bs-toggle="tooltip" data-bs-placement="top"
+             data-bs-custom-class="custom-tooltip"
+             data-bs-title="Change your avatar" id="tooltip">
             <img src="/university_war_exploded/images/newsImage.jpg" alt="image">
         </div>
         <div class="account-card-info">
@@ -109,10 +111,20 @@
                                 <option value="Female">Female</option>
                             </select>
                         </div>
-                        <div class="institute">
-                            <div class="institute-output-container-m">
-                                <input type="text" name="institute" placeholder="Institute">
-                            </div>
+                        <div class="institute form-group">
+                            <select name="institute" class="form-control" required>
+                                <option value="" disabled selected>Institute</option>
+                                <option value="Institute of Information Technologies">Institute of Information Technologies</option>
+                                <option value="Institute of Fundamental Medicine">Institute of Fundamental Medicine</option>
+                                <option value="Faculty of Law">Faculty of Law</option>
+                                <option value="Institute of Ecology">Institute of Ecology</option>
+                                <option value="Institute of Geology">Institute of Geology</option>
+                                <option value="Institute of Management and Economic">Institute of Management and Economic</option>
+                                <option value="Institute of International Relations">Institute of International Relations</option>
+                                <option value="Institute of Psychology">Institute of Psychology</option>
+                                <option value="Graduate School of Business">Graduate School of Business</option>
+                                <option value="Chemical Institute">Chemical Institute</option>
+                            </select>
                         </div>
                         <div class="group">
                             <div class="group-output-container-m">
@@ -133,6 +145,8 @@
         </form>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="/../university_war_exploded/js/office.js"></script>
 </body>
 </html>

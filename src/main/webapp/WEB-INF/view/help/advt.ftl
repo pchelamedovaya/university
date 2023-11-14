@@ -14,11 +14,11 @@
         <div class="form-group">
             <input type="text" class="form-control" id="title" name="title" placeholder="Title">
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" id="nameAuthor" name="nameAuthor" placeholder="Your name">
+        <div class="form-group user-name">
+            <input value="${user.name}" type="text" class="form-control" id="nameAuthor" name="nameAuthor" placeholder="Your name">
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" id="lastnameAuthor" name="lastnameAuthor" placeholder="Your lastname">
+        <div class="form-group user-lastname">
+            <input value="${user.lastname}" type="text" class="form-control" id="lastnameAuthor" name="lastnameAuthor" placeholder="Your lastname">
         </div>
         <div class="form-group">
             <input type="text" class="form-control" id="time" name="time" placeholder="Suitable days of the week, time for you">

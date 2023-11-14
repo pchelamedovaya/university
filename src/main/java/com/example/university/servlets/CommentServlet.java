@@ -2,8 +2,10 @@ package com.example.university.servlets;
 
 import com.example.university.dao.CommentDAO;
 import com.example.university.dao.PostDAO;
+import com.example.university.dao.UserDAO;
 import com.example.university.entity.Comment;
 import com.example.university.entity.Post;
+import com.example.university.entity.User;
 import com.example.university.helpers.Helper;
 import com.example.university.services.CommentService;
 import com.example.university.utils.ConfigSingleton;
@@ -14,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -21,12 +24,14 @@ import java.util.Map;
 
 public class CommentServlet extends HttpServlet {
     private PostDAO postDAO;
+    private UserDAO userDAO;
     private CommentDAO commentDAO;
 
     public void init() {
         ConfigSingleton.setServletContext(this.getServletContext());
         postDAO = (PostDAO) getServletContext().getAttribute("postDAO");
         commentDAO = (CommentDAO) getServletContext().getAttribute("commentDAO");
+        userDAO = (UserDAO) getServletContext().getAttribute("userDAO");
     }
 
     @Override
@@ -44,6 +49,16 @@ public class CommentServlet extends HttpServlet {
                 root.put("commentList", commentDAO.getCommentList(Integer.parseInt(id)));
                 root.put("postId", id);
                 root.put("autentificated", true);
+
+                HttpSession session = req.getSession(false);
+                if (session != null && session.getAttribute("username") != null) {
+                    String username = (String) session.getAttribute("username");
+                    User user = userDAO.getUserInfo(username);
+                    root.put("user", user);
+                } else {
+                    System.out.println("SESSION DOES NOT EXIST");
+                }
+
                 Template template = ConfigSingleton.getConfig().getTemplate("/forum/detail.ftl");
                 template.process(root, resp.getWriter());
             } else {

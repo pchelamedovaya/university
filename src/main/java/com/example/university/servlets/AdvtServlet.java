@@ -1,7 +1,9 @@
 package com.example.university.servlets;
 
 import com.example.university.dao.AdvtDAO;
+import com.example.university.dao.UserDAO;
 import com.example.university.entity.Advt;
+import com.example.university.entity.User;
 import com.example.university.helpers.Helper;
 import com.example.university.services.AdvtService;
 import com.example.university.utils.ConfigSingleton;
@@ -13,12 +15,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
 
 public class AdvtServlet extends HttpServlet {
     private AdvtDAO advtDAO;
+    private UserDAO userDAO;
     private final int NEWS_LIMIT = 15;
 
     private static ConnectionProvider connectionProvider;
@@ -26,6 +30,7 @@ public class AdvtServlet extends HttpServlet {
     public void init() {
         ConfigSingleton.setServletContext(this.getServletContext());
         advtDAO = (AdvtDAO) getServletContext().getAttribute("advtDAO");
+        userDAO = (UserDAO) getServletContext().getAttribute("userDAO");
     }
 
     @Override
@@ -36,6 +41,16 @@ public class AdvtServlet extends HttpServlet {
             Map<String, Object> advtList = new HashMap<>();
             advtList.put("advtList", advtDAO.getAdvtList(NEWS_LIMIT));
             advtList.put("autentificated", true);
+
+            HttpSession session = req.getSession(false);
+            if (session != null && session.getAttribute("username") != null) {
+                String username = (String) session.getAttribute("username");
+                User user = userDAO.getUserInfo(username);
+                advtList.put("user", user);
+            } else {
+                System.out.println("SESSION DOES NOT EXIST");
+            }
+
             template.process(advtList, resp.getWriter());
         } catch (TemplateException e) {
             throw new RuntimeException(e);

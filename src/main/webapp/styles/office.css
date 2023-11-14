@@ -126,3 +126,6 @@ input {
     --bs-tooltip-padding-x: 20px;
     --bs-tooltip-padding-y: 8px;
 }
+.username {
+    display: none;
+}

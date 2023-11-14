@@ -11,8 +11,8 @@
 <@macros.navbar autentificated/>
 <div class="container-my container-help">
     <form class="formpost" method="POST">
-        <div class="form-group">
-            <input type="text" class="form-control" id="author" name="author" placeholder="Your name">
+        <div class="form-group form-name">
+            <input value="${user.name}" type="text" class="form-control" id="author" name="author" placeholder="Your name">
         </div>
         <div class="form-group">
             <input type="text" class="form-control" id="title" name="title" placeholder="Title">

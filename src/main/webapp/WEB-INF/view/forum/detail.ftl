@@ -20,8 +20,8 @@
     </div>
     <form class="commentpost" method="POST">
         <input type="hidden" name="postId" value="${postId}">
-        <div class="form-group">
-            <input type="text" class="form-control" id="author" name="author" placeholder="Your name">
+        <div class="form-group form-name">
+            <input value="${user.name}" type="text" class="form-control" id="author" name="author" placeholder="Your name">
         </div>
         <div class="form-group">
             <textarea class="form-control" id="text" name="text" placeholder="Your message"></textarea>

@@ -53,3 +53,6 @@ body {
     margin-bottom: 5px !important;
     font-size: 17px;
 }
+.form-group.form-name {
+    display: none;
+}

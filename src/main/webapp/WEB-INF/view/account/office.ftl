@@ -91,17 +91,17 @@
                     <div class="wrapper-account-info-modal">
                         <div class="username">
                             <div class="username-output-container-m">
-                                <input type="text" name="username" placeholder="Username">
+                                <input value="${user.username}" type="text" name="username" placeholder="Username">
                             </div>
                         </div>
                         <div class="name">
                             <div class="name-output-container-m">
-                                <input type="text" name="name" placeholder="Name">
+                                <input value="${user.name}" type="text" name="name" placeholder="Name">
                             </div>
                         </div>
                         <div class="lastname">
                             <div class="lastname-output-container-m">
-                                <input type="text" name="lastname" placeholder="Lastname">
+                                <input value="${user.lastname}" type="text" name="lastname" placeholder="Lastname">
                             </div>
                         </div>
                         <div class="gender form-group">

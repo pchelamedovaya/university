@@ -1,7 +1,9 @@
 package com.example.university.servlets;
 
 import com.example.university.dao.PostDAO;
+import com.example.university.dao.UserDAO;
 import com.example.university.entity.Post;
+import com.example.university.entity.User;
 import com.example.university.helpers.Helper;
 import com.example.university.services.PostService;
 import com.example.university.utils.ConfigSingleton;
@@ -13,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -21,11 +24,13 @@ import java.util.Map;
 
 public class PostServlet extends HttpServlet {
     private PostDAO postDAO;
+    private UserDAO userDAO;
     private static ConnectionProvider connectionProvider;
 
     public void init() {
         ConfigSingleton.setServletContext(this.getServletContext());
         postDAO = (PostDAO) getServletContext().getAttribute("postDAO");
+        userDAO = (UserDAO) getServletContext().getAttribute("userDAO");
     }
 
     @Override
@@ -37,6 +42,16 @@ public class PostServlet extends HttpServlet {
             Map<String, Object> root = new HashMap<>();
             root.put("postList", postList);
             root.put("autentificated", true);
+
+            HttpSession session = req.getSession(false);
+            if (session != null && session.getAttribute("username") != null) {
+                String username = (String) session.getAttribute("username");
+                User user = userDAO.getUserInfo(username);
+                root.put("user", user);
+            } else {
+                System.out.println("SESSION DOES NOT EXIST");
+            }
+
             template.process(root, resp.getWriter());
         } catch (TemplateException e) {
             throw new RuntimeException(e);

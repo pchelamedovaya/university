@@ -2,6 +2,7 @@ package com.example.university.dao;
 
 import com.example.university.entity.Comment;
 import com.example.university.entity.Post;
+import com.example.university.entity.User;
 import com.example.university.utils.ConnectionProvider;
 
 import java.sql.PreparedStatement;
@@ -14,6 +15,8 @@ public class CommentDAO {
     //language=sql
     final String SQL = "SELECT comment.id as c_id, comment.author, comment.text " +
             "FROM comment WHERE comment.post_id = ?";
+    private final String SELECT_INFO = "SELECT name FROM users WHERE username = ?";
+
 
     private static ConnectionProvider connectionProvider;
 
@@ -51,5 +54,22 @@ public class CommentDAO {
         } else {
             return null;
         }
+    }
+
+    public User getUserInfo(String username) {
+        User user = new User();
+        try {
+            PreparedStatement preparedStatement = this.connectionProvider.
+                    getConnection().prepareStatement(SELECT_INFO);
+            preparedStatement.setString(1, username);
+            ResultSet result = preparedStatement.executeQuery();
+            if (result.next()) {
+                user.setName(result.getString("name"));
+                user.setUsername(result.getString("username"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return user;
     }
 }

@@ -23,7 +23,8 @@ public class AjaxSearchForUsersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/json;charset=UTF-8");
         String query = request.getParameter("query");
-        List<User> users = userDAO.getUsersByPattern(query);
+        String searchField = request.getParameter("searchField");
+        List<User> users = userDAO.getUsersByPattern(query, searchField);
         JSONArray jsonArray = new JSONArray();
         for (User user : users) {
             JSONObject jsonObject = new JSONObject();

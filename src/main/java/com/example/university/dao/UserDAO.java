@@ -11,8 +11,10 @@ import java.util.List;
 
 public class UserDAO {
     private final String UPDATE = "UPDATE users SET name = ?, lastname = ?, gender = ?, institute = ?, curGroup = ?, bio = ?, username = ? WHERE username = ?";
-    private final String SELECT_PATTERN = "SELECT * FROM users WHERE username LIKE ? OR name LIKE ? OR lastname LIKE ?";
     private final String SELECT_ALL = "SELECT * FROM users LIMIT ?";
+    private final String SELECT_USERNAME_PATTERN = "SELECT * FROM users WHERE username LIKE ?";
+    private final String SELECT_NAME_PATTERN = "SELECT * FROM users WHERE name LIKE ?";
+    private final String SELECT_LASTNAME_PATTERN = "SELECT * FROM users WHERE lastname LIKE ?";
     private final String SELECT_INFO = "SELECT name, lastname, bio, gender, institute, curGroup, username FROM users WHERE username = ?";
     private ConnectionProvider connectionProvider;
 
@@ -20,14 +22,12 @@ public class UserDAO {
         this.connectionProvider = connectionProvider;
     }
 
-    public List<User> getUsersByPattern(String pattern) {
+    public List<User> getUsersByPattern(String pattern, String searchField) {
         System.out.println("PATTERN: " + pattern);
         try {
             PreparedStatement preparedStatement = this.connectionProvider
-                    .getConnection().prepareStatement(SELECT_PATTERN);
+                    .getConnection().prepareStatement(getSelectPattern(searchField));
             preparedStatement.setString(1, "%" + pattern + "%");
-            preparedStatement.setString(2, "%" + pattern + "%");
-            preparedStatement.setString(3, "%" + pattern + "%");
             ResultSet result = preparedStatement.executeQuery();
             List<User> usersList = new ArrayList<>();
             while (result.next()) {
@@ -43,6 +43,19 @@ public class UserDAO {
             return usersList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private String getSelectPattern(String searchField) {
+        switch (searchField) {
+            case "username":
+                return SELECT_USERNAME_PATTERN;
+            case "name":
+                return SELECT_NAME_PATTERN;
+            case "lastname":
+                return SELECT_LASTNAME_PATTERN;
+            default:
+                throw new IllegalArgumentException("Invalid searchField");
         }
     }
 

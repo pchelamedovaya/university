@@ -36,3 +36,22 @@ div.col-md-4 {
 input {
     border-radius: 8px !important;
 }
+.form-control.filter {
+    width: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 8px;
+}
+select {
+    margin: -3px 0 0 !important;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}

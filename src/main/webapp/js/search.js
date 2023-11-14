@@ -1,10 +1,12 @@
 $(document).ready(function () {
-    function f(query) {
+    function f(query, searchField
+    ) {
         $.ajax({
             url: "/university_war_exploded/user/dosearch",
             type: "GET",
             dataType: "json",
-            data: {"query": query},
+            data: {"query": query, "searchField": searchField
+            },
             success: function (data) {
                 let results = data.objects;
                 let container = $("#result");
@@ -32,12 +34,14 @@ $(document).ready(function () {
         });
     }
 
-    $("#searchButton").click(function () {
-        f($("#query").val());
-    })
+    // $("#searchButton").click(function () {
+    //     f($("#query").val());
+    // })
 
     $("#query").on("input", function () {
-        f($("#query").val());
+        let query = $("#query").val();
+        let searchField = $("#searchField").val();
+        f(query, searchField);
     })
 
 });

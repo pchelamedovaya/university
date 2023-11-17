@@ -35,6 +35,7 @@ public class AdvtServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("do get");
         resp.setContentType("text/html;charset=UTF-8");
         try {
             Template template = ConfigSingleton.getConfig().getTemplate("/help/advt.ftl");
@@ -43,6 +44,10 @@ public class AdvtServlet extends HttpServlet {
             advtList.put("autentificated", true);
 
             HttpSession session = req.getSession(false);
+            System.out.println("session " + session);
+            if (session != null) {
+                System.out.println(session.getAttribute("username"));
+            }
             if (session != null && session.getAttribute("username") != null) {
                 String username = (String) session.getAttribute("username");
                 User user = userDAO.getUserInfo(username);
@@ -61,8 +66,8 @@ public class AdvtServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        AdvtService advtService = new AdvtService(ConnectionProvider.getConn().getConnection());
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.setContentType("text/json;charset=UTF-8");
         String title = req.getParameter("title");
         String format = req.getParameter("format");
         String time = req.getParameter("time");
@@ -72,12 +77,13 @@ public class AdvtServlet extends HttpServlet {
         String message = req.getParameter("message");
         try {
             Advt advt = new Advt(title, format, time, url, nameAuthor, lastnameAuthor, message);
+            AdvtService advtService = new AdvtService(ConnectionProvider.getConn().getConnection());
             boolean addResult = advtService.AddAdvt(advt);
             if (addResult) {
                 Helper.redirect(resp, req, "/help");
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            resp.getWriter().write(e.getMessage());
         }
     }
 }

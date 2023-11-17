@@ -9,9 +9,7 @@ import freemarker.template.TemplateException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -20,9 +18,24 @@ import java.util.Map;
 public class FilterLogin extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
-        if (!Helper.isAuth(req, "name")) {
-            Helper.redirect(res, req, "/auth");
+        HttpSession session = req.getSession(true);
+        String username = (String) session.getAttribute("username");
+        if (username == null) {
+            if (req.getCookies() != null) {
+                for (Cookie cookie : req.getCookies()) {
+                    if (cookie.getName().equals("auth")) {
+                        username = cookie.getValue();
+                    }
+                }
+            }
+            if (username == null) {
+                Helper.redirect(res, req, "/auth");
+            } else {
+                session.setAttribute("username", username);
+                chain.doFilter(req, res);
+            }
         } else {
+            session.setAttribute("username", username);
             chain.doFilter(req, res);
         }
     }

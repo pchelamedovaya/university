@@ -57,15 +57,14 @@ public class AuthServlet extends HttpServlet {
             if (autentificationResult) {
                 request.setAttribute("autentificated", true);
 
-                HttpSession session = request.getSession();
+                HttpSession session = request.getSession(true);
                 session.setAttribute("username", username);
 
-                Helper.redirect(response, request, "/survey");
                 if (rememberMe != null) {
-                    Cookie authCookie = new Cookie("auth", "true");
+                    Cookie authCookie = new Cookie("auth", username);
                     response.addCookie(authCookie);
-                    Helper.redirect(response, request, "/survey");
                 }
+                Helper.redirect(response, request, "/survey");
                 request.getSession().setAttribute("auth", username);
             } else {
                 Helper.redirect(response, request, "/reg");

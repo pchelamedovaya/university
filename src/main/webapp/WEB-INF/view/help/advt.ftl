@@ -6,11 +6,15 @@
     <title>Help</title>
     <link rel="stylesheet" href="/university_war_exploded/styles/advts.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
 <@macros.navbar autentificated/>
 <div class="container-my container-help">
-    <form class="formhelp" method="POST">
+    <form action="" id="formhelp" class="formhelp" method="POST">
         <div class="form-group">
             <input type="text" class="form-control" id="title" name="title" placeholder="Title">
         </div>
@@ -37,9 +41,11 @@
         <div class="form-group">
             <input type="text" class="form-control" id="url" name="url" placeholder="Your social network">
         </div>
-        <button type="submit" class="btn btn-primary">Publish</button>
+        <button id="submitButton" type="submit" class="btn btn-primary">Publish</button>
     </form>
 </div>
+
+<div id="resultadvt">
 <#list advtList as advt>
 <div class="container-my container-advt">
     <div id="forum-posts">
@@ -56,5 +62,7 @@
     </div>
 </div>
 </#list>
+</div>
+<script src="/../university_war_exploded/js/advt.js"></script>
 </body>
 </html>
